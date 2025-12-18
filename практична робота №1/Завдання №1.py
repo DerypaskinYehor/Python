@@ -20,7 +20,8 @@ def calculate_x():
         print(f"Результат X = {x:.2f}")
 
     except ValueError:
-        print("Помилка: Будь ласка, введіть коректні числові значення.")
+        print("Будь ласка, введіть коректні числові значення.")
 
 if __name__ == "__main__":
+
     calculate_x()
