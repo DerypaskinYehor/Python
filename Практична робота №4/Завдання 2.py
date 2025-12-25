@@ -7,7 +7,6 @@ def main():
             if i + j >= N - 1:
                 matrix[i][j] = 13 - i - j
 
-    # Виведення масиву на екран
     print("Результат:")
     for row in matrix:
         for x in row:
@@ -15,4 +14,5 @@ def main():
         print()
 
 if __name__ == "__main__":
+
     main()
