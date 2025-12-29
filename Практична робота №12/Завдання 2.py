@@ -21,7 +21,7 @@ def generate_data(n_points=50, noise_level=0.5):
         y_data = y_exact + noise
         return x, y_data
     except Exception as e:
-        print(f"[Помилка генерації даних]: {e}")
+        print(f"Помилка генерації даних: {e}")
         return None, None
 
 def save_results(x, y_true, y_pred, params, mse, filename="results"):
@@ -44,7 +44,7 @@ def save_results(x, y_true, y_pred, params, mse, filename="results"):
         print(f"-> Звіт збережено у файл: {txt_name}")
         
     except IOError as e:
-        print(f"[Помилка запису файлу]: {e}")
+        print(f"Помилка запису файлу: {e}")
 
 
 def process_approximation():
@@ -57,7 +57,7 @@ def process_approximation():
         noise_str = input("Введіть рівень шуму (за замовчуванням 2.0): ")
         noise = float(noise_str) if noise_str else 2.0
     except ValueError as e:
-        print(f"[Помилка вводу]: {e}. Використовуються стандартні значення.")
+        print(f"Помилка вводу: {e}. Використовуються стандартні значення.")
         n, noise = 50, 2.0
 
     x_data, y_data = generate_data(n, noise)
@@ -88,10 +88,10 @@ def process_approximation():
         print(f"MSE: {mse:.4f}")
 
     except RuntimeError:
-        print("[Помилка SciPy]: Не вдалося знайти оптимальні параметри.")
+        print(" Не вдалося знайти оптимальні параметри.")
         return
     except Exception as e:
-        print(f"[Критична помилка]: {e}")
+        print(f"Критична помилка: {e}")
         return
 
     print("\nЕтап 3: Візуалізація та збереження")
@@ -113,7 +113,7 @@ def process_approximation():
         save_results(x_data, y_data, y_fit, popt, mse)
         
     except Exception as e:
-        print(f"[Помилка візуалізації]: {e}")
+        print(f"Помилка візуалізації: {e}")
 
 def main():
     while True:
@@ -132,4 +132,5 @@ def main():
             print("Невідома команда, спробуйте ще раз.")
 
 if __name__ == "__main__":
+
     main()
